@@ -1,0 +1,328 @@
+#!/bin/bash
+
+# ==========================================================
+# DEVOPS PROJECT 1
+# Linux & Command Line Basics
+# ==========================================================
+
+echo "=================================================="
+echo "        DEVOPS PROJECT 1"
+echo "        Linux & Command Line Basics"
+echo "=================================================="
+
+# ----------------------------------------------------------
+# 1. CREATE PROJECT DIRECTORY
+# ----------------------------------------------------------
+
+echo ""
+echo "[1] Creating project directory..."
+
+PROJECT="devops_project"
+
+mkdir -p "$PROJECT/app/logs"
+mkdir -p "$PROJECT/app/config"
+mkdir -p "$PROJECT/app/backup"
+
+echo "Project directory created successfully."
+
+
+# ----------------------------------------------------------
+# 2. DISPLAY CURRENT DIRECTORY
+# ----------------------------------------------------------
+
+echo ""
+echo "[2] Current working directory:"
+
+pwd
+
+
+# ----------------------------------------------------------
+# 3. CREATE CONFIGURATION FILE
+# ----------------------------------------------------------
+
+echo ""
+echo "[3] Creating configuration file..."
+
+cat > "$PROJECT/app/config/config.conf" <<EOF
+APP_NAME=DevOpsDemo
+APP_ENV=development
+SERVER_PORT=8080
+LOG_LEVEL=INFO
+EOF
+
+echo "Configuration file created."
+
+
+# ----------------------------------------------------------
+# 4. CREATE SERVER LOG
+# ----------------------------------------------------------
+
+echo ""
+echo "[4] Creating server log..."
+
+cat > "$PROJECT/app/logs/server.log" <<EOF
+$(date '+%Y-%m-%d %H:%M:%S') - Server started
+$(date '+%Y-%m-%d %H:%M:%S') - Application initialized
+$(date '+%Y-%m-%d %H:%M:%S') - Database connection successful
+$(date '+%Y-%m-%d %H:%M:%S') - Server running on port 8080
+EOF
+
+echo "Server log created."
+
+
+# ----------------------------------------------------------
+# 5. CREATE README FILE
+# ----------------------------------------------------------
+
+echo ""
+echo "[5] Creating README file..."
+
+cat > "$PROJECT/README.txt" <<EOF
+DEVOPS PROJECT 1
+Linux & Command Line Basics
+
+Project demonstrates:
+- Directory creation
+- File creation
+- File copying
+- File moving
+- File reading
+- Directory listing
+- File permissions
+- Log management
+- Basic Linux commands
+
+Project created on:
+$(date)
+EOF
+
+echo "README created."
+
+
+# ----------------------------------------------------------
+# 6. DISPLAY DIRECTORY STRUCTURE
+# ----------------------------------------------------------
+
+echo ""
+echo "[6] Project directory structure:"
+
+ls -R "$PROJECT"
+
+
+# ----------------------------------------------------------
+# 7. DISPLAY FILE CONTENTS
+# ----------------------------------------------------------
+
+echo ""
+echo "[7] Configuration file contents:"
+echo "--------------------------------------------------"
+
+cat "$PROJECT/app/config/config.conf"
+
+echo "--------------------------------------------------"
+
+echo ""
+echo "[8] Server log contents:"
+echo "--------------------------------------------------"
+
+cat "$PROJECT/app/logs/server.log"
+
+echo "--------------------------------------------------"
+
+
+# ----------------------------------------------------------
+# 8. USE HEAD AND TAIL COMMANDS
+# ----------------------------------------------------------
+
+echo ""
+echo "[9] First two lines of server log:"
+
+head -n 2 "$PROJECT/app/logs/server.log"
+
+echo ""
+echo "[10] Last two lines of server log:"
+
+tail -n 2 "$PROJECT/app/logs/server.log"
+
+
+# ----------------------------------------------------------
+# 9. COPY LOG FILE TO BACKUP
+# ----------------------------------------------------------
+
+echo ""
+echo "[11] Creating log backup..."
+
+cp "$PROJECT/app/logs/server.log" \
+   "$PROJECT/app/backup/server_backup.log"
+
+echo "Backup created successfully."
+
+
+# ----------------------------------------------------------
+# 10. DISPLAY BACKUP
+# ----------------------------------------------------------
+
+echo ""
+echo "[12] Backup file contents:"
+
+cat "$PROJECT/app/backup/server_backup.log"
+
+
+# ----------------------------------------------------------
+# 11. MOVE A FILE
+# ----------------------------------------------------------
+
+echo ""
+echo "[13] Creating temporary file..."
+
+touch "$PROJECT/app/temp.txt"
+
+echo "Temporary file created."
+
+echo ""
+echo "[14] Moving temporary file..."
+
+mv "$PROJECT/app/temp.txt" \
+   "$PROJECT/app/config/temp.txt"
+
+echo "Temporary file moved to config directory."
+
+
+# ----------------------------------------------------------
+# 12. CHECK USER INFORMATION
+# ----------------------------------------------------------
+
+echo ""
+echo "[15] Current user:"
+
+whoami
+
+echo ""
+echo "[16] User ID information:"
+
+id
+
+
+# ----------------------------------------------------------
+# 13. CHECK FILE PERMISSIONS
+# ----------------------------------------------------------
+
+echo ""
+echo "[17] Current file permissions:"
+
+ls -l "$PROJECT/app/config/config.conf"
+ls -l "$PROJECT/app/logs/server.log"
+
+
+# ----------------------------------------------------------
+# 14. SET FILE PERMISSIONS
+# ----------------------------------------------------------
+
+echo ""
+echo "[18] Setting configuration file permissions..."
+
+chmod 644 "$PROJECT/app/config/config.conf"
+
+echo "Permissions updated."
+
+ls -l "$PROJECT/app/config/config.conf"
+
+
+# ----------------------------------------------------------
+# 15. ADD NEW LOG ENTRY
+# ----------------------------------------------------------
+
+echo ""
+echo "[19] Adding new log entry..."
+
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Health check OK" \
+>> "$PROJECT/app/logs/server.log"
+
+echo "New log entry added."
+
+
+# ----------------------------------------------------------
+# 16. DISPLAY UPDATED LOG
+# ----------------------------------------------------------
+
+echo ""
+echo "[20] Updated server log:"
+
+cat "$PROJECT/app/logs/server.log"
+
+
+# ----------------------------------------------------------
+# 17. SHOW FILE INFORMATION
+# ----------------------------------------------------------
+
+echo ""
+echo "[21] File information:"
+
+ls -lh "$PROJECT/app/logs/server.log"
+ls -lh "$PROJECT/app/config/config.conf"
+ls -lh "$PROJECT/app/backup/server_backup.log"
+
+
+# ----------------------------------------------------------
+# 18. REMOVE TEMPORARY FILE
+# ----------------------------------------------------------
+
+echo ""
+echo "[22] Removing temporary file..."
+
+rm "$PROJECT/app/config/temp.txt"
+
+echo "Temporary file removed."
+
+
+# ----------------------------------------------------------
+# 19. FINAL PROJECT STRUCTURE
+# ----------------------------------------------------------
+
+echo ""
+echo "=================================================="
+echo "        FINAL PROJECT STRUCTURE"
+echo "=================================================="
+
+ls -R "$PROJECT"
+
+
+# ----------------------------------------------------------
+# 20. PROJECT COMPLETED
+# ----------------------------------------------------------
+
+echo ""
+echo "=================================================="
+echo "        PROJECT COMPLETED SUCCESSFULLY"
+echo "=================================================="
+
+echo ""
+echo "Project Location:"
+pwd
+
+echo ""
+echo "Files created:"
+echo "- README.txt"
+echo "- app/config/config.conf"
+echo "- app/logs/server.log"
+echo "- app/backup/server_backup.log"
+
+echo ""
+echo "Linux commands demonstrated:"
+echo "pwd"
+echo "ls"
+echo "cd"
+echo "mkdir"
+echo "touch"
+echo "cat"
+echo "head"
+echo "tail"
+echo "cp"
+echo "mv"
+echo "rm"
+echo "whoami"
+echo "id"
+echo "chmod"
+
+echo ""
+echo "Thank you!"
