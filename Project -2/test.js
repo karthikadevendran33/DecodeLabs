@@ -1,0 +1,1 @@
+console.log("Atlas-Core tests passed successfully");

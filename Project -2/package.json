@@ -1,0 +1,9 @@
+{
+  "name": "atlas-core",
+  "version": "1.0.0",
+  "description": "Atlas-Core CI/CD project",
+  "scripts": {
+    "test": "node test.js",
+    "build": "echo Build completed successfully"
+  }
+}

@@ -1,0 +1,1 @@
+console.log("Atlas-Core application is running");
